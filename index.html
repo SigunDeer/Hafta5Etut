@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column; 
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        background-color: #ffffff;
+        padding: 10px;
+      }
+
+      .logo-navbar {
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+      }
+
+      .logo-navbar h3 {
+        margin-left: 5px;
+        font-weight: bold;
+        font-size: x-large;
+      }
+
+      .logo-navbar img {
+        width: 30px;
+      }
+
+      .navbar-medium {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 350px;
+        gap: 60px;
+      }
+
+      .navbar-medium a {
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+      }
+
+      .navbar-icons {
+        display: flex;
+        align-items: center;
+        margin-left: 400px;
+        gap: 30px;
+      }
+
+      .navbar-icons img {
+        width: 20px;
+      }
+
+      .slider img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .slider {
+        position: relative;
+      }
+
+      .card-slider {
+        width: 400px;
+        background-color: #dddddd;
+        height: 300px;
+        border-radius: 10px;
+        padding: 40px;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .card-slider h1 {
+        color: #b88e2f;
+      }
+
+      .card-slider button {
+        margin-top: 10px;
+        padding: 9px;
+        background-color: #b88e2f;
+        border: none;
+        width: 150px;
+        height: 50px;
+        color: #ffffff;
+      }
+
+      .container-browse {
+        display: grid;
+        gap: 5px;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(3,1px);
+        margin-top: 16px;
+      }
+
+      .container-browse img {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .container-browse p {
+        text-align: center;
+      }
+
+      .browse-range {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        justify-items: center;
+      }
+
+      .our-products {
+        text-align: center;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .card1 {
+        width: 100%;
+        background-color: #f4f5f7;
+        padding: 10px;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .container {
+        width: 100%;
+        background-color: #ffffff;
+        padding: 10px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+      }
+
+      .card1 {
+        width: 200px;
+        height: 330px;
+        background-color: #f4f5f7;
+        padding: 10px;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .card1 img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .sales {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #e97171;
+        color: white;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 50%;
+      }
+
+      .respira {
+        background-color: #2ec1ac;
+        padding: 5px 10px;
+        border-radius: 50%;
+        font-size: 14px;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .card-text {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .price {
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .light-throght {
+        margin-top: 5px;
+        text-decoration: line-through;
+        color: #b0b0b0;
+        font-size: 14px;
+      }
+
+      .grey {
+        color: #b0b0b0;
+      }
+      .small {
+        font-size: 14px;
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button .btn {
+        padding: 10px;
+        border: 2px solid #b88e2f;
+        padding: 10px;
+        width: 200px;
+        height: 30px;
+        background-color: white;
+        color: #b88e2f;
+      }
+      .card1 button {
+        background-color: white;
+        border: none;
+        padding: 5px;
+        color: #b88e2f;
+        width: 150px;
+        text-align: center;
+      }
+      .card1 .img {
+        opacity: 0.4;
+        position: relative;
+      }
+      .card-container .card1:nth-child(2) {
+        background-color: #3a3a3a;
+      }
+      .rooms-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: #fcf8f3;
+        padding: 20px;
+        align-items: center;
+        width: 100%;
+        height: 400px;
+        margin-top: 30px;
+        gap: 40px;
+      }
+      .text-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+      }
+      .btn {
+        text-decoration: none;
+        color: white;
+        background-color: #b88e2f;
+        padding: 10px;
+        text-align: center;
+        width: 100px;
+      }
+      .text-container p {
+        color: #616161;
+      }
+      .inner-container {
+        position: relative;
+        display: inline-block;
+      }
+
+      .inner-container img {
+        width: 250px;
+        margin-left: 100px;
+        display: block;
+      }
+
+      .inner-box {
+        position: absolute;
+        top: 80%;
+        left: 30%;
+        width: 34%;
+        height: 20%;
+        background-color: #ffffff;
+        text-align: center;
+        padding: 10px;
+        opacity: 0.8;
+        transform: translateY(-50%);
+      }
+
+      .inner-box .small {
+        font-size: small;
+        color: #b0b0b0;
+      }
+
+      .inner-box p {
+        font-size: 20px;
+        color: #3a3a3a;
+      }
+
+      .rooms-icon {
+        position: absolute;
+        top: 88%;
+        left: 42%;
+        transform: translateY(-50%);
+      }
+      .rooms-icon img {
+        width: 20px;
+        background-color: #b88e2f;
+        padding: 8px;
+      }
+      .inner-box-3 {
+        position: relative;
+      }
+      .inner-box-3 img {
+        width: 260px;
+        margin-bottom: 60px;
+        margin-left: 90pxpx;
+      }
+      .inner-box-3 .photo {
+        width: 40px;
+        margin-left: 95px;
+      }
+      .icon-span {
+        border-radius: 100%;
+        background-color: white;
+        color: #b88e2f;
+        padding: 5px;
+        position: absolute;
+        top: 30%;
+        height: 20px;
+        width: 25px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+        right: 40%;
+      }
+      .furniro {
+        width: 100%;
+      }
+      .furniro-content {
+        margin-top: 30px;
+        width: 100%;
+        object-fit: contai;
+        height: auto;
+      }
+      .footer {
+        width: 100%;
+        height: 400px;
+        background-color: #ffffff;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        box-sizing: border-box;
+        padding: 30px;
+        gap: 30px;
+      }
+
+      .text {
+        margin-top: 50px;
+        color: #b0b0b0;
+      }
+      .section-furino span {
+        color: #b0b0b0;
+      }
+      .section-furino h3 {
+        font-size: 25px;
+      }
+      .links {
+        display: flex;
+        flex-direction: column;
+        margin-left: 30px;
+        gap: 30px;
+      }
+      .links a {
+        text-decoration: none;
+        color: black;
+      }
+      .grey {
+        color: #b0b0b0;
+      }
+      .help {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .help a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .color {
+        color: #b0b0b0;
+      }
+      .Newsletter {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .Newsletter a {
+        text-decoration: underline;
+        text-decoration-color: black;
+      }
+      .subscrıbe {
+        color: black;
+        margin-left: 20px;
+      }
+      .Newsletter .enter {
+        color: #b0b0b0;
+      }
+      .Newsletter p {
+        color: #b0b0b0;
+        font-size: 20px;
+      }
+      .footer-text {
+        padding: 40px;
+        margin-left: 90px;
+      }
+
+      .leviosa-button {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-navbar">
+        <img src="logo.png" alt="" />
+        <h3>Furniro</h3>
+        <div class="navbar-medium">
+          <a href="home">Home</a>
+          <a href="shop">Shop</a>
+          <a href="About">About</a>
+          <a href="contact">Contact</a>
+        </div>
+        <div class="navbar-icons">
+          <img src="navbar.images/icons8-person-24.png" alt="person" />
+          <img src="navbar.images/icons8-search-24.png" alt="search" />
+          <img src="navbar.images/icons8-heart-48.png" alt="heart" />
+          <img src="navbar.images/icons8-shopping-cart-48.png" alt="shopping" />
+        </div>
+      </div>
+
+      <div class="slider">
+        <img src="navbar.images/slider.png" alt="" />
+        <div class="card-slider">
+          <p class="new-arrival">New Arrival</p>
+          <h1>Discovery Our New Collection</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+            doloremque veritatis, pariatur esse iusto recusandae autem
+          </p>
+          <button>Buy Now</button>
+        </div>
+      </div>
+
+      <div class="browse-range">
+        <h2>Browse The Range</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="container-browse">
+          <div>
+            <img src="browse-range.images/image 101.png" alt="Dining" />
+            <p><b>Dining</b></p>
+          </div>
+          <div>
+            <img src="browse-range.images/image 100.png" alt="Living" />
+            <p><b>Living</b></p>
+          </div>
+          <div>
+            <img src="browse-range.images/image 106.png" alt="Bedroom" />
+            <p><b>Bedroom</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="our-products">
+      <h2>Our Products</h2>
+    </div>
+
+    <div class="container">
+      <div class="card-container">
+        <div class="card1">
+          <img src="card.images/image 1.png" alt="" />
+          <span class="sales">-30%</span>
+          <div class="card-text">
+            <p>Syltherine</p>
+            <span class="grey">Styles Cafe Chair</span>
+            <div class="price">
+              <span class="small">RP 2.500.000</span>
+              <span class="light-throght">RP 3.500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img class="img" src="card.images/image 2.png" alt="" />
+          <button class="leviosa-button">Add to cart</button>
+
+          <div class="card-text">
+            <p>Leviosa</p>
+            <span class="small">Stylish cafe chaire</span>
+            <div class="price">
+              <span class="small">RP 2500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img src="card.images/image 3.png" alt="" />
+          <span class="sales">-50%</span>
+          <div class="card-text">
+            <p>Lolita</p>
+            <span class="grey">Luxury Big Sofa</span>
+            <div class="price">
+              <span class="small">RP 7.000.000</span>
+              <span class="light-throght">RP 14.000.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img src="card.images/4.png" alt="" />
+          <span class="respira">New</span>
+          <div class="card-text">
+            <p>Respira</p>
+            <span class="grey">Outdoor Bar Table and Stool</span>
+            <div class="price">
+              <span class="small">RP 500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img src="card.images/Ekran Resmi 2025-02-25 18.21.51.png" alt="" />
+          <div class="card-text">
+            <p>Grifo</p>
+            <span class="grey">Night Lamp</span>
+            <div class="price">
+              <span class="small">RP 1.500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img src="card.images/image 6.png" alt="" />
+          <span class="respira">New</span>
+          <div class="card-text">
+            <p>Muggo</p>
+            <span class="grey">Small Mug</span>
+            <div class="price">
+              <span class="small">RP 3.000.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img src="card.images/image 7.png" alt="" />
+          <span class="sales">-50%</span>
+          <div class="card-text">
+            <p>Pingky</p>
+            <span class="grey">Cute Bed Set</span>
+            <div class="price">
+              <span class="small">RP 7.000.000</span>
+              <span class="light-throght">RP 14.000.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card1">
+          <img src="card.images/image 8.png" alt="" />
+          <span class="respira">New</span>
+          <div class="card-text">
+            <p>Potty</p>
+            <span class="grey">Minimalist Flower Pot</span>
+            <div class="price">
+              <span class="small">RP 500.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <button class="btn">Show More</button>
+    </div>
+    <div class="rooms-container">
+      <div class="text-container">
+        <h1>50+ Beatiuful rooms inspiration</h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque,
+          omnis? consectetur adipisicing elit.
+        </p>
+        <a href="#" class="btn">Explore More</a>
+      </div>
+      <div class="inner-container">
+        <img src="rooms.img/1.png" alt="" />
+        <div class="inner-box">
+          <p class="small">01 - Bed Room</p>
+          <p>Inner Peace</p>
+        </div>
+        <div class="rooms-icon">
+          <img src="rooms.img/icons8-arrow-30.png" alt="" />
+        </div>
+      </div>
+      <div class="inner-box-3">
+        <img src="rooms.img/2.png" alt="" />
+        <span class="icon-span"> > </span>
+        <img class="photo" src="rooms.img/Rectangle 26.png" alt="" />
+      </div>
+    </div>
+    <div class="furniro-content">
+      <img
+        class="furniro"
+        src="furino.images/Ekran Resmi 2025-02-27 13.43.52.png"
+        alt=""
+      />
+    </div>
+
+    <div class="footer">
+      <div class="section-furino">
+        <h3>Funiro.</h3>
+        <p class="text">400 University Drive Suite 200 Coral</p>
+        <span>Gablas</span>
+        <span>FL 33134 USA</span>
+      </div>
+      <div class="links">
+        <span class="grey">Links</span>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="help">
+        <span class="grey">Help</span>
+        <a href="#">Payment Options</a>
+        <a href="#">Returns</a>
+        <a href="#">Privacy Policies</a>
+      </div>
+      <div class="Newsletter">
+        <p>Newslatter</p>
+        <div>
+          <a href="#" class="enter">Enter Your Email Adress</a>
+          <a href="#" class="subscrıbe">SUBSCRIBE</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-text">
+      <hr />
+      <p>2023 frino.All rights reverved</p>
+    </div>
+  </body>
+</html>
